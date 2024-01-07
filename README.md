@@ -1,1 +1,1 @@
-# 6-DoFF-Grasp
+# 6-DoF-Grasp
