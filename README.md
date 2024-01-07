@@ -7,7 +7,7 @@ The structure of the framework
 
 ![image](https://github.com/WenJunTang2000/6-DoF-Grasp/blob/main/img/structure.png)
 
-Result
+Results
 -----
 The visualization of detected grasp poses. 
 
