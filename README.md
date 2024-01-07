@@ -9,6 +9,8 @@ The structure of the framework
 
 Results
 -----
+Evaluation results on Realsense camera:
+
 The visualization of detected grasp poses. 
 
 ![image](https://github.com/WenJunTang2000/6-DoF-Grasp/blob/main/img/vis.png)
