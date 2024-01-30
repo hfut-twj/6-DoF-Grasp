@@ -18,4 +18,4 @@ The visualization of detected grasp poses. Grippers in red are well grasps while
 
 Video
 -----
-<source src="img/video.mp4" type="video/mp4">
+<video src="http://www.w3school.com.cn/i/movie.mp4" controls="controls" width="500" height="300"></video>
