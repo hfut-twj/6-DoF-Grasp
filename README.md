@@ -19,6 +19,6 @@ The visualization of detected grasp poses. Grippers in red are well grasps while
 Video
 -----
 <video width:60% height:auto controls>
-<source src="img/vdeo.mp4" type="video/mp4">
+<source src="https://github.com/hfut-twj/6-DoF-Grasp/blob/main/img/video.mp4" type="video/mp4">
 </video>
 
