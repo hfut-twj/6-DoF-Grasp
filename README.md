@@ -11,6 +11,11 @@ Results
 -----
 Evaluation results on Realsense camera:
 
+|          |        | Seen             |                  |        | Similar          |                  |        | Novel            |                  | 
+|:--------:|:------:|:----------------:|:----------------:|:------:|:----------------:|:----------------:|:------:|:----------------:|:----------------:|
+|          | __AP__ | AP<sub>0.8</sub> | AP<sub>0.4</sub> | __AP__ | AP<sub>0.8</sub> | AP<sub>0.4</sub> | __AP__ | AP<sub>0.8</sub> | AP<sub>0.4</sub> |
+| In paper | 61.19  | 71.46            | 56.04            | 47.39  | 56.78            | 40.43            | 19.01  | 23.73            | 10.60             |
+| In repo  | 61.83  | 73.28            | 54.14            | 51.13  | 62.53            | 41.57            | 19.94  | 24.90            | 11.02             |
 The visualization of detected grasp poses. 
 
 ![image](https://github.com/WenJunTang2000/6-DoF-Grasp/blob/main/img/vis.png)
