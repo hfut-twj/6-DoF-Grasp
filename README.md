@@ -15,3 +15,7 @@ The visualization of detected grasp poses.
 
 ![image](https://github.com/WenJunTang2000/6-DoF-Grasp/blob/main/img/vis.png)
 The visualization of detected grasp poses. Grippers in red are well grasps while those in purler and blue are collision and bad ones respectively. The first row shows the results of the baseline method, the second row shows the results of our method, and the third row displays the improvement in AP.
+
+Video
+-----
+<video src='img/序列 01~1.mp4' width=180/>
