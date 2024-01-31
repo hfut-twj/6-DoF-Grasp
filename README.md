@@ -14,8 +14,8 @@ Evaluation results on Realsense camera:
 |          |        | Seen             |                  |        | Similar          |                  |        | Novel            |                  | 
 |:--------:|:------:|:----------------:|:----------------:|:------:|:----------------:|:----------------:|:------:|:----------------:|:----------------:|
 |          | __AP__ | AP<sub>0.8</sub> | AP<sub>0.4</sub> | __AP__ | AP<sub>0.8</sub> | AP<sub>0.4</sub> | __AP__ | AP<sub>0.8</sub> | AP<sub>0.4</sub> |
-| In paper | 61.19  | 71.46            | 56.04            | 47.39  | 56.78            | 40.43            | 19.01  | 23.73            | 10.60             |
-| In repo  | 61.83  | 73.28            | 54.14            | 51.13  | 62.53            | 41.57            | 19.94  | 24.90            | 11.02             |
+| Ours     | 74.31  | 85.23            | 70.04            | 64.72  | 77.48            | 56.88            | 26.66  | 33.18            | 14.41             |
+| Ours + CD| 75.39  | 86.75            | 70.60            | 65.75  | 78.82            | 57.52            | 27.38  | 34.17            | 14.56             |
 
 
 The visualization of detected grasp poses. 
@@ -25,7 +25,8 @@ The visualization of detected grasp poses. Grippers in red are well grasps while
 
 Video
 -----
-[![Alt text](https://github.com/hfut-twj/6-DoF-Grasp/blob/main/img/robot.png)](https://www.youtube.com/watch?v=lEg-B_jfnDE)
+the real-world grasping experiments.
+[![Alt text](https://github.com/hfut-twj/6-DoF-Grasp/blob/main/img/robot.png)](https://www.youtube.com/watch?v=RQuNy9_vByM)
 
 
 
