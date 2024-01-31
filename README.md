@@ -2,7 +2,7 @@
 
 Results
 -----
-Evaluation results on Realsense camera:
+Evaluation results based on the GraspNet-1Billion benchmark captured by RealSense:
 
 |          |        | Seen             |                  |        | Similar          |                  |        | Novel            |                  | 
 |:--------:|:------:|:----------------:|:----------------:|:------:|:----------------:|:----------------:|:------:|:----------------:|:----------------:|
