@@ -19,7 +19,7 @@ The visualization of detected grasp poses. Grippers in red are well grasps while
 Video
 -----
 The real-world grasping experiments.
-[![Alt text](https://github.com/hfut-twj/6-DoF-Grasp/blob/main/img/robot.png)](https://www.youtube.com/watch?v=RQuNy9_vByM)
+[![Alt text](https://github.com/hfut-twj/6-DoF-Grasp/blob/main/img/robot.png)](https://www.youtube.com/watch?v=uB1haZOncH4)
 
 ![image](https://github.com/hfut-twj/6-DoF-Grasp/blob/main/img/vis_exp.png)
 
