@@ -24,6 +24,7 @@ The real-world grasping experiments:
 The visualization of the sampled grasp poses:
 ![image](https://github.com/hfut-twj/6-DoF-Grasp/blob/main/img/vis_exp.png)
 
-
-
+Acknowledgment
+-----
+My code is mainly based on Graspnet-baseline https://github.com/graspnet/graspnet-baseline and https://github.com/rhett-chen/graspness_implementation.
 
