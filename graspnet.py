@@ -32,12 +32,10 @@ class GraspNet(nn.Module):
         self.backbone = MinkUNet14D(in_channels=3, out_channels=self.seed_feature_dim, D=3)
         self.graspable = GraspableNet(seed_feature_dim=self.seed_feature_dim)
         self.rotation = ApproachNet(self.num_view, seed_feature_dim=512, is_training=self.is_training)
-
         self.crop1 = CloudCrop(nsample=16, cylinder_radius=cylinder_radius* 0.5, seed_feature_dim=self.seed_feature_dim)
         self.crop2 = CloudCrop(nsample=16, cylinder_radius=cylinder_radius* 0.75, seed_feature_dim=self.seed_feature_dim)
         self.crop3 = CloudCrop(nsample=32, cylinder_radius=cylinder_radius, seed_feature_dim=self.seed_feature_dim)
         self.crop4 = CloudCrop(nsample=64, cylinder_radius=cylinder_radius* 1.5, seed_feature_dim=self.seed_feature_dim)
-
         self.swad = SWADNet(num_angle=self.num_angle, num_depth=self.num_depth)
         self.psa = PSAModule(1024, 256)    
 
@@ -59,7 +57,6 @@ class GraspNet(nn.Module):
         graspable_mask = objectness_mask & graspness_mask
         seed_features_graspable = []
         seed_xyz_graspable = []
-
         graspable_num_batch = 0.
         for i in range(B):
             cur_mask = graspable_mask[i]
@@ -79,28 +76,20 @@ class GraspNet(nn.Module):
         end_points['xyz_graspable'] = seed_xyz_graspable
         end_points['fp2_features'] = seed_features_graspable
         end_points['graspable_count_stage1'] = graspable_num_batch / B
-
         end_points, res_feat = self.rotation(seed_features_graspable, end_points)
-
         if self.is_training:
             end_points = process_grasp_labels(end_points)
             grasp_top_views_rot, end_points = match_grasp_view_and_label(end_points)
-
-     
         else:
-            grasp_top_views_rot = end_points['grasp_top_view_rot']
-            
+            grasp_top_views_rot = end_points['grasp_top_view_rot']   
         end_points['grasp_top_view_rot_pred'] = grasp_top_views_rot
-        
         group_features1 = self.crop1(seed_xyz_graspable.contiguous(), seed_features_graspable.contiguous(), grasp_top_views_rot)  
         group_features2 = self.crop2(seed_xyz_graspable.contiguous(), seed_features_graspable.contiguous(), grasp_top_views_rot) 
         group_features3 = self.crop3(seed_xyz_graspable.contiguous(), seed_features_graspable.contiguous(), grasp_top_views_rot) 
         group_features4 = self.crop4(seed_xyz_graspable.contiguous(), seed_features_graspable.contiguous(), grasp_top_views_rot)
-         
         group_features_concat = torch.cat([group_features1, group_features2, group_features3, group_features4], dim=1)
         group_features = self.psa(group_features_concat)  # torch.Size([4, 256, 1024])
         end_points = self.swad(group_features, end_points)
-
         return end_points
 
 
@@ -123,16 +112,13 @@ def pred_decode(end_points):
         grasp_angle = (grasp_score_inds // NUM_DEPTH) * np.pi / 12
         grasp_depth = (grasp_score_inds % NUM_DEPTH + 1) * 0.01
         grasp_depth = grasp_depth.view(-1, 1)
-
         grasp_width = 1.2 * end_points['grasp_width_pred'][i] / 10.
         grasp_width = grasp_width.view(M_POINT, NUM_ANGLE*NUM_DEPTH)
         grasp_width = torch.gather(grasp_width, 1, grasp_score_inds.view(-1, 1))
         grasp_width = torch.clamp(grasp_width, min=0., max=GRASP_MAX_WIDTH)
-
         approaching = -end_points['grasp_top_view_xyz'][i].float()
         grasp_rot = batch_viewpoint_params_to_matrix(approaching, grasp_angle)
         grasp_rot = grasp_rot.view(M_POINT, 9)
-
         grasp_height = 0.02 * torch.ones_like(grasp_score)
         obj_ids = -1 * torch.ones_like(grasp_score)
         grasp_preds.append(
