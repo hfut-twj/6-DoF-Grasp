@@ -21,6 +21,8 @@ Video
 The real-world grasping experiments.
 [![Alt text](https://github.com/hfut-twj/6-DoF-Grasp/blob/main/img/robot.png)](https://www.youtube.com/watch?v=RQuNy9_vByM)
 
+![image](https://github.com/hfut-twj/6-DoF-Grasp/blob/main/img/Baseline.pdf)
+
 
 
 
